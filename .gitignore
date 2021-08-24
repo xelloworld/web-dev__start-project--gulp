@@ -13,8 +13,8 @@ Thumbs.db
 node_modules/
 
 # Директория с собранными файлами проекта
-# app/
-# build/
+app/
+build/
 
 # Прочее
 *.rar
