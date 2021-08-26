@@ -2,8 +2,9 @@
   "name": "webdev__start-project_gulp",
   "version": "1.0.0",
   "description": "Данный стартовый шаблон предназначен для WEB разработки.",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,6 +13,7 @@
   },
   "keywords": [
     "gulp",
+    "linters",
     "html",
     "sass",
     "js"
@@ -21,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/xelloworld/webdev__start-project_gulp/issues"
   },
-  "homepage": "https://github.com/xelloworld/webdev__start-project_gulp#readme"
+  "homepage": "https://github.com/xelloworld/webdev__start-project_gulp#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0",
+    "gulp-htmlmin": "^5.0.1"
+  }
 }

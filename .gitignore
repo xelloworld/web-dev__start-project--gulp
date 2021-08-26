@@ -2,6 +2,7 @@
 .directory
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Файлы редакторов
 .vscode
@@ -10,11 +11,11 @@ Thumbs.db
 
 # Вспомогательные директории и файлы
 *.log*
-node_modules/
+node_modules
 
 # Директория с собранными файлами проекта
-app/
-build/
+app
+build
 
 # Прочее
 *.rar
