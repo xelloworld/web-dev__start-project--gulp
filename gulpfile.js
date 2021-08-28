@@ -4,6 +4,8 @@ import htmlMin from 'gulp-htmlmin';
 import fileInclude from 'gulp-file-include';
 import rename from 'gulp-rename';
 import gulpSass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import groupCssMedia from 'gulp-group-css-media-queries'
 import nodeSass from 'sass';
 import browserSync from 'browser-sync';
 
@@ -36,9 +38,12 @@ export const htmlBuild = () => {
 
 export const styleBuild = () => {
   return src('src/scss/*.scss')
-  .pipe(sass({
-    outputStyle: 'compressed'
+  .pipe(sass())
+  .pipe(autoprefixer({
+    overrideBrowserslist: ["last 5 versions"],
+    grid: true
   }))
+  .pipe(groupCssMedia())
   .pipe(rename({
     suffix: '.min'
   }))
