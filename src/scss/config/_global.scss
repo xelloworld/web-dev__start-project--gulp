@@ -1,0 +1,27 @@
+body {
+  min-width: $minWidth;
+  font-family: $fontFamily;
+
+  &.body-scroll-lock-js {
+    overflow: hidden;
+  }
+}
+
+input,
+button,
+textarea {
+  font-family: $fontFamily;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 $paddingContainer;
+  max-width: $maxWidthContainer;
+}

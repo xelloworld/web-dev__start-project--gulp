@@ -1,0 +1,14 @@
+// === Подключение шрифта без деления на сабсеты (подмножества) ===
+@include font("name-font", "name-file", "400", "normal");
+
+// === Подключение только кириллицы ===
+@include font-cyr("name-font", "name-file", "400", "normal");
+
+// === Подключение расширенной кириллицы ===
+@include font-cyr-ext("name-font", "name-file", "400", "normal");
+
+// === Подключение только латиницы ===
+@include font-lat("name-font", "name-file", "400", "normal");
+
+// === Подключение расширенной латиницы ===
+@include font-lat-ext("name-font", "name-file", "400", "normal");

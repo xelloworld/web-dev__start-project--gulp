@@ -1,35 +1,54 @@
-const {src, dest, parallel, series, watch} = gulp;
-
 import gulp from 'gulp';
 import del from 'del';
-import fileInclude from 'gulp-file-include';
 import htmlMin from 'gulp-htmlmin';
+import fileInclude from 'gulp-file-include';
+import rename from 'gulp-rename';
+import gulpSass from 'gulp-sass';
+import nodeSass from 'sass';
 import browserSync from 'browser-sync';
 
-// Clean
+const {src, dest, parallel, series, watch} = gulp;
+const sass = gulpSass(nodeSass);
 
-export const clean = () => {
+// Clean build
+
+export const cleanBuild = () => {
   return del('build');
-};
+}
 
-// HTML
+// HTML build
 
-export const html = () => {
+export const htmlBuild = () => {
   return src('src/html/pages/*.html')
     .pipe(fileInclude({
         prefix: '@',
     }))
     .pipe(htmlMin({
       removeComments: true,
-      collapseWhitespace: true
+      // collapseWhitespace: true,
+      // preserveLineBreaks: true
     }))
     .pipe(dest('build'))
     .pipe(browserSync.stream())
 }
 
+// Style build
+
+export const styleBuild = () => {
+  return src('src/scss/*.scss')
+  .pipe(sass({
+    outputStyle: 'compressed'
+  }))
+  .pipe(rename({
+    suffix: '.min'
+  }))
+  .pipe(dest('build/css'))
+  .pipe(browserSync.stream())
+}
+
 // Browsersync
 
-export const server = () => {
+export const liveServer = () => {
   browserSync.init({
     server: {
       baseDir: 'build'
@@ -43,15 +62,17 @@ export const server = () => {
     open: false,
     online: true
   });
-  watch('src/html/**/*.html', html);
+  watch('src/html/**/*.html', htmlBuild);
+  watch('src/scss/**/*.scss', styleBuild);
 }
 
 // Default
 
 export default series(
-  clean,
+  cleanBuild,
   parallel(
-    html
+    htmlBuild,
+    styleBuild
   ),
-  server
+  liveServer
 );

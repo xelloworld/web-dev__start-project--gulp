@@ -1,0 +1,130 @@
+.header {
+  // .header__inner
+  &__inner {
+  }
+}
+
+.logo {
+  // .logo__name
+  &__name {
+  }
+
+  // .logo__tagline
+  &__tagline {
+  }
+}
+
+.menu {
+  display: flex;
+  flex: 1 1 auto;
+  align-self: center;
+  justify-content: center;
+
+  // .menu__list
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 32px;
+
+    @media (max-width: $mbp4 + px) {
+      position: fixed;
+      left: 0;
+      top: 0;
+      display: block;
+      overflow: auto;
+      margin: 0;
+      padding: 115px 0 20px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-color: #0b4bec;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease 0s;
+
+      &::after {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 95px;
+        background-color: #0b4bec;
+      }
+
+      // .menu__list .menu__list_open-js
+      &.menu__list_open-js {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  // .menu__link
+  &__link {
+
+    &:hover {
+    }
+  }
+}
+
+.burger-icon {
+  position: relative;
+  display: none;
+  flex: 0 0 auto;
+  align-self: center;
+  margin-left: 32px;
+  width: 40px;
+  height: 40px;
+
+  // .burger-icon__button
+  &__button {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+
+    // .burger-icon__button .burger-icon__button_active-js
+    &.burger-icon__button_active-js {
+      .burger-icon__button-line {
+        transform: scale(0);
+
+        &:first-child {
+          top: 33%;
+          transform: rotate(-45deg);
+        }
+
+        &:last-child {
+          bottom: 33%;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  // .burger-icon__button-line
+  &__button-line {
+    position: relative;
+    border-radius: 2px;
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease 0s;
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:last-child {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  @media (max-width: $mbp4 + px) {
+    display: block;
+  }
+}

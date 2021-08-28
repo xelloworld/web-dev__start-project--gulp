@@ -1,0 +1,20 @@
+// === Миксины ===
+@import "config/mixins";
+
+// === Подключение шрифтов ===
+@import "config/fonts";
+
+// === Переменные ===
+@import "config/vars";
+
+// === Сброс браузерных стелей ===
+@import "config/null";
+
+// === Глобальные стили ===
+@import "config/global";
+
+// === header ===
+@import "layout/header";
+
+// === footer ===
+@import "layout/footer";
