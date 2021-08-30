@@ -44,6 +44,9 @@ export const buildStyle = () => {
     grid: true
   }))
   .pipe(groupCssMedia())
+  .pipe(sass({
+    outputStyle: 'compressed'
+  }))
   .pipe(rename({
     suffix: '.min'
   }))
