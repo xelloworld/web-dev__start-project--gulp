@@ -20,7 +20,7 @@ export const cleanBuild = () => {
 
 // HTML build
 
-export const htmlBuild = () => {
+export const buildHtml = () => {
   return src('src/html/pages/*.html')
     .pipe(fileInclude({
         prefix: '@',
@@ -36,7 +36,7 @@ export const htmlBuild = () => {
 
 // Style build
 
-export const styleBuild = () => {
+export const buildStyle = () => {
   return src('src/scss/*.scss')
   .pipe(sass())
   .pipe(autoprefixer({
@@ -67,8 +67,8 @@ export const liveServer = () => {
     open: false,
     online: true
   });
-  watch('src/html/**/*.html', htmlBuild);
-  watch('src/scss/**/*.scss', styleBuild);
+  watch('src/html/**/*.html', buildHtml);
+  watch('src/scss/**/*.scss', buildStyle);
 }
 
 // Default
@@ -76,8 +76,8 @@ export const liveServer = () => {
 export default series(
   cleanBuild,
   parallel(
-    htmlBuild,
-    styleBuild
+    buildHtml,
+    buildStyle
   ),
   liveServer
 );
