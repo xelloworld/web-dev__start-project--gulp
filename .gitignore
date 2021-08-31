@@ -14,7 +14,6 @@ Desktop.ini
 node_modules
 
 # Директория с собранными файлами проекта
-app
 build
 
 # Прочее

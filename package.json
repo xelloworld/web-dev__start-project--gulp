@@ -13,10 +13,10 @@
   },
   "keywords": [
     "gulp",
-    "linters",
     "html",
     "sass",
-    "js"
+    "js",
+    "linters"
   ],
   "author": "Sergey",
   "license": "WTFPL",
@@ -27,6 +27,9 @@
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "del": "^6.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-file-include": "^2.3.0",
