@@ -2,15 +2,6 @@
   "name": "webdev__start-project_gulp",
   "version": "1.0.0",
   "description": "Данный стартовый шаблон предназначен для WEB разработки.",
-  "type": "module",
-  "scripts": {
-    "start": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xelloworld/webdev__start-project_gulp.git"
-  },
   "keywords": [
     "gulp",
     "html",
@@ -18,6 +9,20 @@
     "js",
     "linters"
   ],
+  "type": "module",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.css": "stylelint --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xelloworld/webdev__start-project_gulp.git"
+  },
   "author": "Sergey",
   "license": "WTFPL",
   "bugs": {
@@ -37,6 +42,8 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
     "sass": "^1.38.2",
     "stylelint": "^13.13.1",
     "stylelint-declaration-block-no-ignored-properties": "^2.4.0",
