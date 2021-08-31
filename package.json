@@ -16,8 +16,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.css": "stylelint --fix"
+    "*.js": "eslint --fix",
+    "*.scss": "stylelint --fix"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,8 @@
   },
   "homepage": "https://github.com/xelloworld/webdev__start-project_gulp#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
     "browser-sync": "^2.27.5",
     "del": "^6.0.0",
     "eslint": "^7.32.0",
