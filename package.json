@@ -2,13 +2,6 @@
   "name": "webdev__start-project_gulp",
   "version": "1.0.0",
   "description": "Данный стартовый шаблон предназначен для WEB разработки.",
-  "keywords": [
-    "gulp",
-    "html",
-    "sass",
-    "js",
-    "linters"
-  ],
   "type": "module",
   "scripts": {
     "start": "gulp",
@@ -23,6 +16,13 @@
     "type": "git",
     "url": "git+https://github.com/xelloworld/webdev__start-project_gulp.git"
   },
+  "keywords": [
+    "gulp",
+    "html",
+    "sass",
+    "js",
+    "linters"
+  ],
   "author": "Sergey",
   "license": "WTFPL",
   "bugs": {
@@ -39,11 +39,13 @@
     "eslint-plugin-import": "^2.24.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
+    "gulp-uglify-es": "^3.0.0",
     "husky": "^7.0.0",
     "lint-staged": "^11.1.2",
     "sass": "^1.38.2",

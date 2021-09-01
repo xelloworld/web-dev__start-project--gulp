@@ -7,6 +7,7 @@ import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import groupCssMedia from 'gulp-group-css-media-queries';
 import nodeSass from 'sass';
+import babel from 'gulp-babel';
 import browserSync from 'browser-sync';
 
 const {
@@ -18,13 +19,11 @@ const {
 } = gulp;
 const sass = gulpSass(nodeSass);
 
-// Clean build
+// Clean
 
-export const cleanBuild = () => (
-  del('build')
-);
+export const cleanBuild = () => del('build');
 
-// HTML build
+// HTML
 
 export const buildHtml = () => (
   src('src/html/pages/*.html')
@@ -40,7 +39,7 @@ export const buildHtml = () => (
     .pipe(browserSync.stream())
 );
 
-// Style build
+// Styles
 
 export const buildStyle = () => (
   src('src/scss/*.scss')
@@ -57,6 +56,20 @@ export const buildStyle = () => (
       suffix: '.min',
     }))
     .pipe(dest('build/css'))
+    .pipe(browserSync.stream())
+);
+
+// Scripts
+
+export const buildScripts = () => (
+  src('src/js/*.js')
+    .pipe(fileInclude({
+      prefix: '=>>',
+    }))
+    .pipe(babel({
+      presets: ['@babel/preset-env'],
+    }))
+    .pipe(dest('build/js'))
     .pipe(browserSync.stream())
 );
 
@@ -78,6 +91,7 @@ export const liveServer = () => {
   });
   watch('src/html/**/*.html', buildHtml);
   watch('src/scss/**/*.scss', buildStyle);
+  watch('src/js/**/*.js', buildScripts);
 };
 
 // Default
@@ -87,6 +101,7 @@ export default series(
   parallel(
     buildHtml,
     buildStyle,
+    buildScripts,
   ),
   liveServer,
 );
